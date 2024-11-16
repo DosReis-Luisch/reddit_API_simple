@@ -4,10 +4,16 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { configureStore } from '@reduxjs/toolkit';
-import { Provider } from "react-redux"
+import { Provider } from "react-redux";
+import searchReducer from "./features/search";
+import redditCallReducer from "./features/redditCall"; // Adjust the path as necessary
+
 
 const store = configureStore({
-  reducer: {},
+  reducer: {
+    searchQuery: searchReducer,
+    redditCall: redditCallReducer,
+  },
 });
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

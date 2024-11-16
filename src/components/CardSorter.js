@@ -1,9 +1,20 @@
-import React from 'react'
+import React from 'react';
 
-function CardSorter() {
+function CardSorter({ setSortOption }) {
+  const handleSortChange = (e) => {
+    setSortOption(e.target.value);
+  };
+
   return (
-    <div>CardSorter</div>
-  )
+    <div>
+      <p>Sort by</p>
+      <select onChange={handleSortChange}>
+        <option value="Name">Name</option>
+        <option value="Date">Date</option>
+        <option value="Likes">Likes</option>
+      </select>
+    </div>
+  );
 }
 
-export default CardSorter
+export default CardSorter;
