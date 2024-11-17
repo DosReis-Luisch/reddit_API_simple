@@ -7,7 +7,8 @@ function Search() {
   const dispatch = useDispatch();
   const inputRef = useRef(null); // Create a ref for the input
 
-  const handleSearch = () => {
+  const handleSearch = (event) => {
+    dispatch(updateSearchValue({ searchValue: event.target.value, isSearchable: true }));
     dispatch(fetchResult());
     if (inputRef.current) {
       inputRef.current.value = ''; // Clear the input field
@@ -17,13 +18,19 @@ function Search() {
   return (
     <div>
       <input
+        className='input input-bordered input-sm w-full max-w-xs'
         type="text"
         ref={inputRef}
-        onInput={(event) => {
-          dispatch(updateSearchValue({ searchValue: event.target.value, isSearchable: true }));
+        onKeyDown={(event) => {
+          if (event.key === 'Enter') {
+            handleSearch(event);
+          }
         }}
       />
-      <button onClick={handleSearch}>Search</button>
+      <button 
+        className='btn btn-sm'
+        style={{margin: "10px"}}
+        onClick={(event) => {handleSearch(event)}}>Search</button>
     </div>
   );
 }
