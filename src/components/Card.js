@@ -42,7 +42,7 @@ function Card({ data }) {
         </h2>
         <div className="card-actions">
           <div className="likes-date">
-            <div className="badge badge-secondary">{likes} Likes</div>
+            <div className="badge badge-secondary">&#10084;&#65039;    {likes}</div>
             <div className="badge badge-secondary">
               {new Date(created_utc * 1000).toLocaleDateString()}
             </div>
