@@ -22,7 +22,7 @@ function Cards() {
   }
   const { searchResult, status, error } = redditCall;
   if (error) {
-    return <div>Error fetching data: {error}</div>;
+    return <div>We encountered an error. Please try again later.\n {error}</div>;
   }
   if (status === 'loading') {
     return <div>Searching for: {searchValue}...</div>;
